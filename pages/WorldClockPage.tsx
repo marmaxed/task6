@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import AddClockForm from '../components/AddClockForm';
-import Clock from '../components/Clock';
+import React, { useEffect, useState } from "react";
+import AddClockForm from "../components/AddClockForm";
+import Clock from "../components/Clock";
 
 interface ClockData {
   id: number;
@@ -10,12 +10,12 @@ interface ClockData {
 
 const WorldClock: React.FC = () => {
   const [clocks, setClocks] = useState<ClockData[]>(() => {
-    const saved = localStorage.getItem('clocks');
+    const saved = localStorage.getItem("clocks");
     return saved ? JSON.parse(saved) : [];
   });
 
   useEffect(() => {
-    localStorage.setItem('clocks', JSON.stringify(clocks));
+    localStorage.setItem("clocks", JSON.stringify(clocks));
   }, [clocks]);
 
   const handleAddClock = (city: string, timezone: number) => {

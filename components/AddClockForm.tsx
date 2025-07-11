@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 interface AddClockFormProps {
   onAdd: (city: string, timezone: number) => void;
 }
 
 const AddClockForm: React.FC<AddClockFormProps> = ({ onAdd }) => {
-  const [city, setCity] = useState<string>('');
-  const [timezone, setTimezone] = useState<string>('');
+  const [city, setCity] = useState<string>("");
+  const [timezone, setTimezone] = useState<string>("");
 
   const handleSubmit = () => {
     const offset = Number(timezone);
     if (!city.trim() || isNaN(offset)) return;
     onAdd(city.trim(), offset);
-    setCity('');
-    setTimezone('');
+    setCity("");
+    setTimezone("");
   };
 
   return (
